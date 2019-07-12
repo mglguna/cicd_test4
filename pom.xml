@@ -20,6 +20,13 @@
 
 	<build>
 		<plugins>
+		<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
@@ -51,6 +58,32 @@
                     </coverage>
                 </configuration>
             </plugin>
+            <plugin>
+			  <groupId>org.mule.tools.maven</groupId>
+			  <artifactId>mule-maven-plugin</artifactId>
+			  <version>2.2.1</version>
+          <configuration>
+		          <deploymentType>cloudhub</deploymentType>
+            <muleVersion>${mule.version}</muleVersion> 
+            <username>${cloudhub.username}</username> 
+            <password>${cloudhub.password}</password> 
+            <applicationName>${artifactId}</applicationName> 
+            <environment>${cloudhub.env}</environment> 
+            <region>us-west-2</region>
+            <workerType>Micro</workerType> 
+            <application>target/${artifactId}-${version}.zip</application>
+       			 <applicationName>${artifactId}</applicationName>
+        </configuration>
+		        <executions>
+		          <execution>
+		            <id>deploy</id>
+		            <phase>deploy</phase>
+		            <goals>
+		              <goal>deploy</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+			</plugin>
         </plugins>
 	</build>
 
