@@ -65,7 +65,7 @@
 			  <version>${mule.maven.plugin.version}</version>
 			  <extensions>true</extensions>
           		<configuration>
-				    <deploymentType>cloudhub</deploymentType>
+				    <cloudHubDeploymentType>
 		            <muleVersion>${app.runtime}</muleVersion> 
 		            <username>${cloudhub.username}</username> 
 		            <password>${cloudhub.password}</password> 
@@ -75,6 +75,7 @@
 		            <workerType>Micro</workerType> 
 		            <application>target/${artifactId}-${version}.zip</application>
 		       		<applicationName>${artifactId}</applicationName>
+		       		</cloudHubDeploymentType>
         			</configuration>
 		        <executions>
 		          <execution>
