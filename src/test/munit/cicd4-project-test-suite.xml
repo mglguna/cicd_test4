@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="cicd4-project-test-suite.xml" />
+	<munit:test name="cicd4-project-test-suite-cicd4-projectFlowTest" description="Test" doc:id="535ab3ee-e3a8-4947-8a11-21732a17bf7c" >
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to cicd4-projectFlow" doc:id="d4cce785-7ec8-4f63-abbc-ebfbc4ba45c5" name="cicd4-projectFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="459ac00e-dc90-4820-8c4a-887ffe0c19d2" expression="#[payload]" is="#[MunitTools::both( MunitTools::notNullValue(), MunitTools::equalToIgnoringCase('Hello Cicd-Project'))]" message="String is Not Null and also starts with Word Hello"/>
+		</munit:validation>
+	</munit:test>
+
+</mule>
