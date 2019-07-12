@@ -65,17 +65,17 @@
 			  <version>${mule.maven.plugin.version}</version>
 			  <extensions>true</extensions>
           		<configuration>
-				    <cloudHubDeploymentType>
+				    <cloudHubDeployment>
+				    <uri>https://anypoint.mulesoft.com</uri>
 		            <muleVersion>${app.runtime}</muleVersion> 
 		            <username>${cloudhub.username}</username> 
 		            <password>${cloudhub.password}</password> 
-		            <applicationName>${artifactId}</applicationName> 
 		            <environment>${cloudhub.env}</environment> 
-		            <region>us-west-2</region>
+		           <!--   <region>us-west-2</region>
 		            <workerType>Micro</workerType> 
 		            <application>target/${artifactId}-${version}.zip</application>
-		       		<applicationName>${artifactId}</applicationName>
-		       		</cloudHubDeploymentType>
+		       		<applicationName>${artifactId}</applicationName>-->
+		       		</cloudHubDeployment>
         			</configuration>
 		        <executions>
 		          <execution>
