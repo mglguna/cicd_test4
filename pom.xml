@@ -73,7 +73,7 @@
 		            <environment>${cloudhub.env}</environment> 
 		           <!--   <region>us-west-2</region>-->
 		            <workerType>Micro</workerType> 
-		            <application>target/${artifactId}-${version}.zip</application>
+		          <!--    <application>target/${artifactId}-${version}.zip</application>-->
 		       		<applicationName>${artifactId}</applicationName>
 		       		</cloudHubDeployment>
         			</configuration>
