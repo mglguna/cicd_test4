@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+  stages {
+	  	stage('Build') { 
+	      steps { 
+	        sh "'/usr/local/Cellar/maven/3.6.1/bin/mvn' clean package --settings '/Users/Vishnu/apache-maven-3.6.1/conf/settings.xml' -P foo"
+	      }
+	    }
+	    stage('Unit Test') { 
+	      steps {
+	        sh "'/usr/local/Cellar/maven/3.6.1/bin/mvn' clean test"
+	      }
+	    }
+	    stage('Deploy CloudHub') { 
+		      environment {
+		        MULE4_CREDENTIALS = credentials('mule4.credentials')
+		      }
+		      steps {
+		        sh "'/usr/local/Cellar/maven/3.6.1/bin/mvn' deploy -P cloudhub -Dapp.runtime=4.2.0 -Dcloudhub.username=${MULE4_CREDENTIALS_USR} -Dcloudhub.password=${MULE4_CREDENTIALS_PSW} -Dcloudhub.env=Sandbox" 
+		      }
+	    }
+  	}
+}
