@@ -71,10 +71,10 @@
 		            <username>${cloudhub.username}</username> 
 		            <password>${cloudhub.password}</password> 
 		            <environment>${cloudhub.env}</environment> 
-		           <!--   <region>us-west-2</region>
+		           <!--   <region>us-west-2</region>-->
 		            <workerType>Micro</workerType> 
 		            <application>target/${artifactId}-${version}.zip</application>
-		       		<applicationName>${artifactId}</applicationName>-->
+		       		<applicationName>${artifactId}</applicationName>
 		       		</cloudHubDeployment>
         			</configuration>
 		        <executions>
